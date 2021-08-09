@@ -1,0 +1,39 @@
+@charset "utf8";
+
+/* 
+Filename:   locations.css
+*/
+
+@import url(../base.css);
+
+/*  */
+
+#find-location-section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../resources/restaurant.jpg') center center / cover no-repeat;
+  height: calc(100vh - 7rem);
+  color: var(--white);
+  text-shadow: var(--black) 0 0 10px;;
+  justify-content: center;
+}
+
+.search-container {
+
+}
+
+#locationSearchInput {
+}
+
+#locationSearchBtn {
+ color: var(--black);
+}
+
+p#or {
+
+}
+
+#findCurrentLocation {
+
+}

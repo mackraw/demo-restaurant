@@ -1,0 +1,69 @@
+@charset "utf8";
+
+/* 
+Filename:   menu.css
+Author:     Maciej Krawczyk
+Course:     ITSE 1311
+Semester:   Spring 2021
+*/
+
+@import url(../css/main.css);
+
+/* TITLE SECTION */
+
+#banner {
+  background-image: url(../images/meals2.jpg);
+  height: 40vh;
+}
+
+.title {
+  font-size: 3rem;
+  padding-top: 3rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+  padding-top: 1rem;
+}
+
+/* MENU TABLE */
+
+#menuTable {
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#menuTable tr>td:first-of-type {
+  width: 150px;
+  height: 110px;
+}
+
+#menuTable tr>td:nth-of-type(2) {
+  width: 66%;
+  padding-left: 2rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+#menuTable img {
+  width: 100%;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.itemDesc {
+  font-weight: 400;
+  font-size: 1rem;
+  /* font-style: italic; */
+  line-height: 1.5rem;
+  padding-top: 0.6rem;
+  color: var(--dark-gray);
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
