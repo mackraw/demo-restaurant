@@ -17,6 +17,7 @@ Filename:   locations.css
   color: var(--white);
   text-shadow: var(--black) 0 0 10px;;
   justify-content: center;
+  transition: all 200ms ease-out;
 }
 
 .search-container {
@@ -24,6 +25,16 @@ Filename:   locations.css
 }
 
 #locationSearchInput {
+  background-color: var(--white);
+  padding: 0.75rem;
+  margin: 1rem auto;
+  border-radius: 5px;
+  font-family: Roboto, sans-serif;
+}
+
+#locationSearchInput:focus {
+  outline: none;
+  border-color: var(--orange);
 }
 
 #locationSearchBtn {
@@ -31,9 +42,102 @@ Filename:   locations.css
 }
 
 p#or {
+  margin: 1.5rem auto;
+}
 
+#locationSearchBtn,
+#findCurrentLocation {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.75rem 1.5rem;
+  margin: 1rem auto;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: Roboto, sans-serif;
 }
 
 #findCurrentLocation {
 
+}
+
+/* SEARCH RESULTS */
+
+.hidden {
+  display: none;
+}
+
+.results-header {
+  border: 1px solid #4845f0ab;
+  background-color: #4845f018;
+  width: 80%;
+  margin: 3rem auto 2rem auto;
+  padding: 1.65rem 2rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.searchResults {
+  line-height: 1.5rem;
+  margin: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.result-item {
+  border: 1px solid var(--light-gray);
+  margin: 1rem;
+  padding: 1.65rem 2rem;
+  border-radius: 5px;
+  width: 40%;
+  transition: all 200ms ease-out;
+
+}
+
+.result-item:hover {
+  box-shadow: 0 0 15px var(--light-gray);
+  /* cursor: pointer; */
+}
+
+.result-title {
+}
+
+#yourLocation {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.results-header p:nth-child(2) {
+  font-size: 0.9rem;
+  line-height: 1.25rem;
+}
+
+.result-distance {
+ color: var(--mid-gray);
+ font-size: 0.9rem;
+}
+
+.result-address {
+
+}
+
+.result-link {
+  text-decoration: underline transparent;
+  color: #4745f0;
+  transition: all 200ms ease-out;
+}
+
+.result-link:visited {
+  color: #4745f0;
+}
+
+.result-link:hover {
+  color: #4745f0;
+  text-decoration: underline #4745f0;
+}
+
+.result-link:target {
+  color: #4745f0;
 }

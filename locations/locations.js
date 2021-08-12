@@ -5,49 +5,117 @@ Filename:   locations.js
 */
 
 const locToken = 'pk.0ae9557ee132ce75bcb7fa0418ca38df';
-const findLocationBtn = document.querySelector('#findCurrentLocation');
 const yourLocation = document.querySelector('#yourLocation');
+const searchResults = document.querySelector('.searchResults');
+const findLocationSection = document.getElementById('find-location-section');
+const resultsSection = document.querySelector('.results');
+const searchCurrentLocationBtn = document.querySelector('#findCurrentLocation');
+const searchInputLocationBtn = document.getElementById('locationSearchBtn');
+const locationSearchInput = document.getElementById('locationSearchInput');
 
+const displayLocationName = (data) => {
+  const a = data.address;
+  const address = `Showing results for ${
+    a.house_number == undefined ? '' : a.house_number
+  } ${a.road == undefined ? '' : a.road}${
+    a.city == undefined ? '' : ' in ' + a.city
+  }, ${a.state == undefined ? '' : a.state}`;
+  yourLocation.innerText = address;
+};
 
+const searchName = async () => {
+  const searchString = locationSearchInput.value;
+  try {
+    const response = await fetch(
+      `https://us1.locationiq.com/v1/search.php?key=${locToken}&q=${searchString}&limit=1&addressdetails=1&format=json`
+    );
+    const data = await response.json();
+    displayLocationName(data[0]);
+    const obj = {
+      coords: {
+        latitude: `${data[0].lat}`,
+        longitude: `${data[0].lon}`,
+      },
+    };
+    getRestaurants(obj);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+searchInputLocationBtn.addEventListener('click', searchName);
 
 const getLocationName = async (pos) => {
   const lat = pos.coords.latitude;
   const lon = pos.coords.longitude;
   try {
     const response = await fetch(
-      `https://us1.locationiq.com/v1/reverse.php?key=${locToken}&lat=${lat}&lon=${lon}&format=json`);
-      const data = await response.json();
-      const a = data.address;
-    const address = `Showing our locations near ${a.house_number} ${a.road} in ${a.city}, ${a.state}`;
-    yourLocation.innerText = address;
-
+      `https://us1.locationiq.com/v1/reverse.php?key=${locToken}&lat=${lat}&lon=${lon}&format=json`
+    );
+    const data = await response.json();
+    displayLocationName(data);
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 const error = (err) => {
   console.log(err);
-}
+};
 
-window.addEventListener('load', () => {
-  navigator.geolocation.getCurrentPosition(getLocationName, error);
-  
+searchCurrentLocationBtn.addEventListener('click', () => {
+  navigator.geolocation.getCurrentPosition(getRestaurants, error);
 });
 
-findLocationBtn.addEventListener(
-  'click',
-  navigator.geolocation.getCurrentPosition(getLocationName, error)
-);
+const getRestaurants = async (pos) => {
+  const lat = pos.coords.latitude;
+  const lon = pos.coords.longitude;
+  getLocationName(pos);
+  try {
+    const response = await fetch(
+      `https://us1.locationiq.com/v1/nearby.php?key=${locToken}&lat=${lat}&lon=${lon}&tag=restaurant&radius=50000&format=json`
+    );
+    const data = await response.json();
+    displayResults(data);
+  } catch (error) {
+    console.error(error);
+  }
+  // const error = (error) => {
+  //   console.error(error);
+  // };
+};
 
-// const getLocationName = new Promise((resolve, reject) => {
-//   resolve(`Party up`);
-//   reject(`Not today Partner!`);
-// });
+function displayResults(arr) {
+  const htmlArr = arr.map((item) => {
+    const a = item.address;
+    const div = document.createElement('div');
+    div.classList.add('result-item');
+    if (item.name === 'Empty') {
+      return null;
+    } else {
+      div.innerHTML = `<h3 class="result-title">${item.name}</h3>
+      <p class="result-distance">Approximately ${
+        Math.round((item.distance / 1609) * 10) / 10
+      } miles away</p>
+      <p class="result-address">${
+        a.house_number == undefined ? '' : a.house_number
+      } ${a.road == undefined ? '' : a.road}, ${
+        a.city == undefined ? '' : a.city
+      }</p>
+      <a class="result-link" href="https://www.google.com/maps/?q=${item.lat} ${
+        item.lon
+      }">Find directions on Google Maps</a>`;
+      return div;
+    }
+  });
 
-
-// getLocationName.then(() => {
-//   console.log('Got data, yep');
-  
-// })
-// console.log(getLocationName);
+  findLocationSection.style.height = '40vh';
+  resultsSection.classList.remove('hidden');
+  searchResults.innerHTML = '';
+  for (let i = 0; i < htmlArr.length; i++) {
+    if (htmlArr[i] == null) {
+    } else {
+      searchResults.append(htmlArr[i]);
+    }
+  }
+}

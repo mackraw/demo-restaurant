@@ -1,18 +1,15 @@
 @charset "utf8";
 
 /* 
-Filename:   menu.css
-Author:     Maciej Krawczyk
-Course:     ITSE 1311
-Semester:   Spring 2021
+Styles for the Menu page
 */
 
-@import url(../css/main.css);
+@import url(../base.css);
 
 /* TITLE SECTION */
 
 #banner {
-  background-image: url(../images/meals2.jpg);
+  background-image: url(../resources/meals2.jpg);
   height: 40vh;
 }
 

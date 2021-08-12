@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
 
     let imageCell = document.createElement('td');
     let image = new Image;
-    image.src = '../images/' + foodImg[i];
+    image.src = '../resources/' + foodImg[i];
     imageCell.appendChild(image);
     row.appendChild(imageCell);
 
