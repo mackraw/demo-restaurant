@@ -6,12 +6,12 @@ Reset, variables, and reusable styles
 
 @font-face {
   font-family: RobotoBold;
-  src: url("resources/RobotoSlab-Bold.woff");
+  src: url('resources/RobotoSlab-Bold.woff');
 }
 
 @font-face {
   font-family: Roboto;
-  src: url("resources/Roboto-Regular.woff");
+  src: url('resources/Roboto-Regular.woff');
 }
 
 /* RESET */
@@ -21,15 +21,49 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-article, aside, figcaption, figure,
-footer, header, main, nav, section { 
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
   display: block;
 }
 
-address, article, aside, blockquote, body, cite, 
-div, dl, dt, dd, em, figcaption, figure, footer, 
-h1, h2, h3, h4, h5, h6, header, html, img, 
-li, main, nav, ol, p, section, span, ul {
+address,
+article,
+aside,
+blockquote,
+body,
+cite,
+div,
+dl,
+dt,
+dd,
+em,
+figcaption,
+figure,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+html,
+img,
+li,
+main,
+nav,
+ol,
+p,
+section,
+span,
+ul {
   margin: 0;
   padding: 0;
   border: 0;
@@ -37,10 +71,8 @@ li, main, nav, ol, p, section, span, ul {
   vertical-align: baseline;
   background: transparent;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;  
+  box-sizing: border-box;
 }
-
 
 /* VARIABLES */
 
@@ -53,6 +85,7 @@ li, main, nav, ol, p, section, span, ul {
   --light-gray: #e1e1e1;
   --gray: #aaaaaa8c;
   --dark-gray: #3f3f3f;
+  --dark-gray-transprent: #3f3f3fc4;
   --mid-gray: #6b6b6b;
   --orange: #ff6937;
 }
@@ -67,36 +100,51 @@ li, main, nav, ol, p, section, span, ul {
 
 /* NAV */
 
-nav {
-  background-color: var(--dark-gray);
+#nav {
+  background-color: hsla(0, 0%, 25%, 0.35);
   height: 7rem;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+  -webkit-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 
 .top-nav {
   list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   height: inherit;
 }
 
-.top-nav>li {
+.top-nav > li {
   padding: 0.6em 2em;
 }
 
-.top-nav>li>a {
-  color: var(--white);
+.top-nav > li > a {
+  color: #fff;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 0.9rem;
   line-height: 1em;
   padding: 1em;
+  -webkit-transition: all ease-in-out 100ms;
+  -o-transition: all ease-in-out 100ms;
   transition: all ease-in-out 100ms;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
+  text-shadow: var(--black) 0 0 20px;
 }
 
-.top-nav>li>a:hover {
+.top-nav > li > a:hover {
   color: var(--orange);
 }
 
@@ -104,7 +152,7 @@ nav {
 
 #banner {
   position: relative;
-  height: calc(100vh - 7rem);
+  height: 100vh;
 }
 
 .banner-text {
@@ -112,7 +160,8 @@ nav {
   top: 30%;
 }
 
-.title, .subtitle {
+.title,
+.subtitle {
   color: var(--white);
   text-shadow: var(--black) 0 0 20px;
   text-transform: uppercase;
@@ -123,7 +172,7 @@ nav {
   font-family: RobotoBold;
   font-size: 4rem;
   line-height: 1.5em;
-  top:35%;
+  top: 35%;
 }
 
 .subtitle {
@@ -140,7 +189,6 @@ section {
   margin-top: 2rem;
 }
 
-
 .btn {
   display: block;
   background-color: var(--red);
@@ -151,18 +199,27 @@ section {
   width: 7rem;
   text-align: center;
   border-radius: 5px;
+  -webkit-box-shadow: var(--dark-gray) 0 0 10px;
   box-shadow: var(--dark-gray) 0 0 10px;
   text-transform: uppercase;
   font-weight: 700;
+  -webkit-transition: all 100ms ease-in-out;
+  -o-transition: all 100ms ease-out;
+  -webkit-transition: all 100ms ease-out;
+  transition: all 100ms ease-out;
 }
 
 .btn:hover {
   color: var(--white);
+  -webkit-box-shadow: var(--dark-gray) 0 0 15px;
   box-shadow: var(--dark-gray) 0 0 15px;
-
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
 }
 
-.section-title, .section-subtitle {
+.section-title,
+.section-subtitle {
   text-align: center;
 }
 
@@ -179,15 +236,17 @@ section {
   margin-bottom: 1rem;
 }
 
-p>a {
+p > a {
   font-weight: bold;
   color: var(--dark-red);
   text-decoration: none;
   border-bottom: 2px solid var(--dark-red);
+  -webkit-transition: all ease-in-out 200ms;
+  -o-transition: all ease-in-out 200ms;
   transition: all ease-in-out 200ms;
 }
 
-p>a:hover {
+p > a:hover {
   color: var(--orange);
   border-color: var(--orange);
 }
@@ -199,44 +258,64 @@ footer {
   background-color: var(--black);
   font-size: 0.8rem;
   color: var(--white);
-  text-align: center;
   /* margin-top: 2rem; */
 }
 
-.top-footer {
+.footer-top {
   line-height: 1.5rem;
   background-color: var(--dark-gray);
   padding: 4rem 0;
 }
 
-.top-footer-nav a {
-  color: var(--orange);
-  font-size: 0.95rem;
-  text-transform: uppercase;
-}
-
-.top-footer-nav, 
-.bottom-footer-nav {
-  list-style-type: none;
+.footer-top-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
-.top-footer-nav li, 
-.bottom-footer-nav li {
-  margin: 0 4rem;
+
+.footer-top-nav-col {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: flex-start;
 }
 
-.top-footer-nav a,
-.bottom-footer a {
+.footer-top-nav > * {
+  width: 22%;
+}
+
+.footer-top-nav-col li {
+  margin: 0.25rem 4rem;
+  color: var(--white);
+  font-size: 0.95rem;
+}
+
+.footer-top-nav-col a {
+  border-bottom: 1px solid transparent;
   text-decoration: none;
+  color: var(--orange);
+}
+
+.footer-top-nav-col a:hover {
+  border-bottom: 1px solid var(--orange);
 }
 
 .bottom-footer {
+  text-align: center;
   line-height: 1.5rem;
   padding: 1.5rem 0;
-}
-
-.bottom-footer a {
-  color: var(--light-gray)
 }

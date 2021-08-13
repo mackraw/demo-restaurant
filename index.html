@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
     <script src="index.js" type="module" async></script>
+    <script src="../common.js" type="module" async></script>
     <title>Demo Restaurant - Home</title>
   </head>
   <body>
 
-    <nav>
+    <nav id="nav">
       <ul class="container top-nav">
         <li><a href="#">Home</a></li>
         <li><a href="order/">Order</a></li>
@@ -35,7 +36,7 @@
     <section class="container" id="specials">
       <header>
         <h1 class="section-title">Our Specials</h1>
-        <h2 class="section-subtitle">The Specials list is build pragramtically with vanilla JS.</h2>
+        <h2 class="section-subtitle">Some food is so good, you can't believe it's real.</h2>
       </header>
 
       <div id="cards-container"></div>
@@ -62,18 +63,34 @@
     </section>
 
     <footer>
-      <div class="top-footer">
-        <ul class="top-footer-nav">
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Employment</a></li>
-          <li><a href="#">Who We Are</a></li>
-        </ul>
+      <div class="footer-top">
+        <div class="footer-top-nav">
+          <div class="top-footer-nav-col">
+            <p>logo</p>
+          </div>
+          <ul class="footer-top-nav-col">
+            <li>Menu</li>
+            <li><a href="#">Breakfast</a></li>
+            <li><a href="#">Lunch</a></li>
+            <li><a href="#">Dinner</a></li>
+          </ul>
+          <ul class="footer-top-nav-col">
+            <li>Information</li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Employment</a></li>
+            <li><a href="#">Who We Are</a></li>
+          </ul>
+          <ul class="footer-top-nav-col">
+            <li>Legal</li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        
       </div>
       <div class="container bottom-footer">
-        <ul class="bottom-footer-nav">
-          <li><a href="#">Terms and Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
+        <p>&copy;<span id="currentYear"></span> Copyright Information</p>
       </div>
     </footer>
   </body>

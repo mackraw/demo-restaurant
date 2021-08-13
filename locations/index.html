@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="locations.css" />
     <script src="locations.js" type="module" async></script>
+    <script src="../common.js" type="module" async></script>
     <title>Find Our Restaurant Near You</title>
   </head>
   <body>
 
-    <nav>
+    <nav id="nav">
       <ul class="container top-nav">
-        <li><a href="../">Home</a></li>
-        <li><a href="../order/">Order</a></li>
-        <li><a href="../menu/">Menu</a></li>
-        <li><a href="../locations/">Locations</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="order/">Order</a></li>
+        <li><a href="menu/">Menu</a></li>
+        <li><a href="locations/">Locations</a></li>
       </ul>
     </nav>
 
@@ -23,12 +24,15 @@
       <div id="find-location-section">
         <h2 class="section-title">Find our restaurant near you</h2>
         <h3 class="section-subtitle">Enter a city, ZIP or delivery address to see nearby locations.</h3>
-        <div class="search-container">
-          <input type="text" name="locationSearch" id="locationSearchInput">
-          <button id="locationSearchBtn">🔍</button>
+        <div class="inputs">
+
+          <div class="search-container">
+            <input type="text" name="locationSearch" id="locationSearchInput">
+            <button id="locationSearchBtn">🔍</button>
+          </div>
+          <p id="or">Or</p>
+          <button id="findCurrentLocation">Use my current location</button>
         </div>
-        <p id="or">Or</p>
-        <button id="findCurrentLocation">Use my current location</button>
       </div>
       <div class="results hidden">
         <div class="results-header">
@@ -42,18 +46,34 @@
     </main>
 
     <footer>
-      <div class="top-footer">
-        <ul class="top-footer-nav">
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Employment</a></li>
-          <li><a href="#">Who We Are</a></li>
-        </ul>
+      <div class="footer-top">
+        <div class="footer-top-nav">
+          <div class="top-footer-nav-col">
+            <p>logo</p>
+          </div>
+          <ul class="footer-top-nav-col">
+            <li>Menu</li>
+            <li><a href="#">Breakfast</a></li>
+            <li><a href="#">Lunch</a></li>
+            <li><a href="#">Dinner</a></li>
+          </ul>
+          <ul class="footer-top-nav-col">
+            <li>Information</li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Employment</a></li>
+            <li><a href="#">Who We Are</a></li>
+          </ul>
+          <ul class="footer-top-nav-col">
+            <li>Legal</li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        
       </div>
       <div class="container bottom-footer">
-        <ul class="bottom-footer-nav">
-          <li><a href="#">Terms and Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
+        <p>&copy;<span id="currentYear"></span> Copyright Information</p>
       </div>
     </footer>
 

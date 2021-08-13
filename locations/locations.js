@@ -4,7 +4,9 @@
 Filename:   locations.js
 */
 
-const locToken = 'pk.0ae9557ee132ce75bcb7fa0418ca38df';
+import { LOC_TOKEN } from '../dotenv.js';
+
+const locToken = LOC_TOKEN;
 const yourLocation = document.querySelector('#yourLocation');
 const searchResults = document.querySelector('.searchResults');
 const findLocationSection = document.getElementById('find-location-section');
@@ -15,8 +17,8 @@ const locationSearchInput = document.getElementById('locationSearchInput');
 
 const displayLocationName = (data) => {
   const a = data.address;
-  const address = `Showing results for ${
-    a.house_number == undefined ? '' : a.house_number
+  const address = `Showing results ${
+    a.house_number == undefined ? '' : 'near' + a.house_number
   } ${a.road == undefined ? '' : a.road}${
     a.city == undefined ? '' : ' in ' + a.city
   }, ${a.state == undefined ? '' : a.state}`;
@@ -37,9 +39,11 @@ const searchName = async () => {
         longitude: `${data[0].lon}`,
       },
     };
-    getRestaurants(obj);
+    setTimeout(getRestaurants(obj), 1000);
+    // getRestaurants(obj);
   } catch (error) {
     console.error(error);
+    yourLocation.innerText = `Something went wrong...`;
   }
 };
 

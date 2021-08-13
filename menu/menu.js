@@ -2,10 +2,9 @@
 
 /* 
 Filename:   menu.js
-Author:     Maciej Krawczyk
-Course:     ITSE 1311
-Semester:   Spring 2021
 */
+
+// TODO change arrays to foodItems.js
 
 // Menu Items, prices, images
 const foodItem = ['Lemon Fish with Sundried Tomatoes', ' Spicy Chicken and Steamed Vegetables', 'Italian Meatballs', 'Pasta Italiana in Sauce', 'Oven Baked Pizza'];

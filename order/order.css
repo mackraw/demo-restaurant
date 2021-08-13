@@ -9,21 +9,31 @@ Styles for the order page
 /* MENU & ORDER SECTION */
 
 #orderContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
 #orderForm {
-  flex: 1 1 65%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 65%;
+          flex: 1 1 65%;
   margin-bottom: 1rem;
   width: 66%;
 }
 
 #yourOrderContainer {
-  flex: 1 1 30%;
-  align-self: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 
@@ -45,10 +55,19 @@ Styles for the order page
 }
 
 .row {
+ display: -webkit-box;
+ display: -ms-flexbox;
  display: flex;
- flex-flow: row nowrap;
- align-items: center;
- justify-content: space-between ;
+ -webkit-box-orient: horizontal;
+ -webkit-box-direction: normal;
+     -ms-flex-flow: row nowrap;
+         flex-flow: row nowrap;
+ -webkit-box-align: center;
+     -ms-flex-align: center;
+         align-items: center;
+ -webkit-box-pack: justify;
+     -ms-flex-pack: justify;
+         justify-content: space-between ;
  margin-bottom: 1rem;
  background-color: var(--light-gray);
  border-radius: 3px;
@@ -61,7 +80,8 @@ Styles for the order page
 .foodImg {
   border-radius: 5px;
   border: 1px solid var(--light-gray);
-  box-shadow: var(--gray) 0 0 15px;
+  -webkit-box-shadow: var(--gray) 0 0 15px;
+          box-shadow: var(--gray) 0 0 15px;
   width: 100%;
   height: 100px;
   background-size: cover;
@@ -120,13 +140,19 @@ Styles for the order page
   /* width: 25%; */
   border: 2px solid var(--light-gray);
   border-radius: 3px;
-  box-shadow: var(--light-gray) 0 0 15px;
+  -webkit-box-shadow: var(--light-gray) 0 0 15px;
+          box-shadow: var(--light-gray) 0 0 15px;
 }
 
 #yourOrder {
   /* padding-left: 1.5rem; */
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   width: 100%;
   line-height: 1.5rem;
   font-size: 0.85rem;
@@ -137,8 +163,13 @@ Styles for the order page
 }
 
 .yourHeading, .yourRow, .subtotalRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
 }
 
 .yourHeading {

@@ -9,19 +9,51 @@ Filename:   locations.css
 /*  */
 
 #find-location-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../resources/restaurant.jpg') center center / cover no-repeat;
-  height: calc(100vh - 7rem);
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../resources/restaurant.jpg') center center / cover no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))),
+    url('../resources/restaurant.jpg') center center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../resources/restaurant.jpg') center center / cover no-repeat;
+  height: 100vh;
   color: var(--white);
-  text-shadow: var(--black) 0 0 10px;;
+  text-shadow: var(--black) 0 0 10px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .inputs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+  }
 }
 
 .search-container {
-
 }
 
 #locationSearchInput {
@@ -38,11 +70,13 @@ Filename:   locations.css
 }
 
 #locationSearchBtn {
- color: var(--black);
+  color: var(--black);
 }
 
-p#or {
-  margin: 1.5rem auto;
+#or {
+  margin: 1.5rem;
+  -ms-flex-item-align: end;
+  text-align: center;
 }
 
 #locationSearchBtn,
@@ -58,7 +92,6 @@ p#or {
 }
 
 #findCurrentLocation {
-
 }
 
 /* SEARCH RESULTS */
@@ -80,8 +113,15 @@ p#or {
 .searchResults {
   line-height: 1.5rem;
   margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -91,11 +131,13 @@ p#or {
   padding: 1.65rem 2rem;
   border-radius: 5px;
   width: 40%;
+  -webkit-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
-
 }
 
 .result-item:hover {
+  -webkit-box-shadow: 0 0 15px var(--light-gray);
   box-shadow: 0 0 15px var(--light-gray);
   /* cursor: pointer; */
 }
@@ -115,17 +157,19 @@ p#or {
 }
 
 .result-distance {
- color: var(--mid-gray);
- font-size: 0.9rem;
+  color: var(--mid-gray);
+  font-size: 0.9rem;
 }
 
 .result-address {
-
 }
 
 .result-link {
+  -webkit-text-decoration: underline transparent;
   text-decoration: underline transparent;
   color: #4745f0;
+  -webkit-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
 }
 
@@ -135,6 +179,7 @@ p#or {
 
 .result-link:hover {
   color: #4745f0;
+  -webkit-text-decoration: underline #4745f0;
   text-decoration: underline #4745f0;
 }
 
