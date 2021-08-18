@@ -18,7 +18,7 @@ const locationSearchInput = document.getElementById('locationSearchInput');
 const displayLocationName = (data) => {
   const a = data.address;
   const address = `Showing results ${
-    a.house_number == undefined ? '' : 'near' + a.house_number
+    a.house_number == undefined ? '' : 'near ' + a.house_number
   } ${a.road == undefined ? '' : a.road}${
     a.city == undefined ? '' : ' in ' + a.city
   }, ${a.state == undefined ? '' : a.state}`;
@@ -39,15 +39,19 @@ const searchName = async () => {
         longitude: `${data[0].lon}`,
       },
     };
-    setTimeout(getRestaurants(obj), 1000);
-    // getRestaurants(obj);
+    getRestaurants(obj);
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
     yourLocation.innerText = `Something went wrong...`;
   }
 };
 
 searchInputLocationBtn.addEventListener('click', searchName);
+locationSearchInput.addEventListener('keyup', (e) => {
+  if (e.code == 'Enter') {
+    searchName();
+  }
+});
 
 const getLocationName = async (pos) => {
   const lat = pos.coords.latitude;
@@ -64,7 +68,7 @@ const getLocationName = async (pos) => {
 };
 
 const error = (err) => {
-  console.log(err);
+  console.log(err.message);
 };
 
 searchCurrentLocationBtn.addEventListener('click', () => {
@@ -82,11 +86,8 @@ const getRestaurants = async (pos) => {
     const data = await response.json();
     displayResults(data);
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
   }
-  // const error = (error) => {
-  //   console.error(error);
-  // };
 };
 
 function displayResults(arr) {
@@ -113,7 +114,7 @@ function displayResults(arr) {
     }
   });
 
-  findLocationSection.style.height = '40vh';
+  findLocationSection.style.height = '25rem';
   resultsSection.classList.remove('hidden');
   searchResults.innerHTML = '';
   for (let i = 0; i < htmlArr.length; i++) {

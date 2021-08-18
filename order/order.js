@@ -9,7 +9,7 @@ import { foodItems } from '../resources/foodItems.js';
 // Create and populate the menu
 window.addEventListener('load', () => {
   const orderForm = document.getElementById('orderForm');
-  //const finish creating form order headings 
+  //const finish creating form order headings
 
   for (var i = 0; i < foodItems.length; i++) {
     let row = document.createElement('div');
@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
     imgDiv.classList.add('foodImg');
     let imgUrl = '../resources/' + foodItems[i].img;
     imgDiv.style.backgroundImage = 'url(' + imgUrl + ')';
-    imgContainer.append(imgDiv)
+    imgContainer.append(imgDiv);
     row.appendChild(imgContainer);
 
     // Create HTML for the item name
@@ -52,22 +52,20 @@ window.addEventListener('load', () => {
     qtyContainer.appendChild(selectQty);
     row.appendChild(qtyContainer);
 
-    // Insrt row into form
+    // Insert row into form
     orderForm.appendChild(row);
   }
 
   // Create a button to place the order
   const button = document.createElement('button');
   button.innerText = 'Place Your Order';
-  button.classList.add('placeOrderBtn');
+  button.classList.add('btn');
   button.onclick = calculate;
   orderForm.appendChild(button);
-
 });
 
 // Calculate the order according to the number of items sold
 const calculate = function () {
-
   // Initialize variables needed for calculation
   const selectElements = document.querySelectorAll('.qtyNum');
   let subtotal = 0;
@@ -75,40 +73,48 @@ const calculate = function () {
   let message = '';
 
   // Loop over each menu item
-  for (let j = 0; j < selectElements.length; j++) {    
-
+  for (let j = 0; j < selectElements.length; j++) {
     // Get quantity, price, and item name from the filled out form
     let orderedQty = parseInt(selectElements[j].value);
     let priceStr = selectElements[j].parentNode.previousSibling.innerText;
     let itemPrice = parseFloat(priceStr.slice(1));
-    let orderedItemName = selectElements[j].parentNode.previousSibling.previousSibling.innerText;
-    
+    let orderedItemName =
+      selectElements[j].parentNode.previousSibling.previousSibling.innerText;
+
     // Calculate line price based on number of items sold
     // and add to the subtotal
     if (orderedQty !== 0) {
       let linePrice = orderedQty * itemPrice;
       subtotal += linePrice;
       message +=
-        orderedQty + 'x ' + orderedItemName + ' = $' + linePrice.toFixed(2) + '\n';
+        orderedQty +
+        'x ' +
+        orderedItemName +
+        ' = $' +
+        linePrice.toFixed(2) +
+        '\n';
     }
   }
-  
+
   // Calculate tax and final amount to be charged
   const taxAmount = subtotal * taxRate;
   const finalBalance = subtotal + taxAmount;
   message +=
-  'Subtotal: $' + subtotal.toFixed(2) + '\n' +
-    'Total Tax: $' + taxAmount.toFixed(2) + '\n' +
-    'Total Balance Due: $' + finalBalance.toFixed(2);
-    
+    'Subtotal: $' +
+    subtotal.toFixed(2) +
+    '\n' +
+    'Total Tax: $' +
+    taxAmount.toFixed(2) +
+    '\n' +
+    'Total Balance Due: $' +
+    finalBalance.toFixed(2);
+
   alert(message);
-  
-}
+};
 
 // Function to create a live preview of the order
 let order = []; // will store info about items added to the order
 const populateOrder = (e) => {
-
   // Get the necessary variables
   let qty = parseInt(e.target.value);
   let name = e.target.parentNode.previousSibling.previousSibling.innerText;
@@ -147,14 +153,15 @@ const populateOrder = (e) => {
 
   // Display currently ordered items
   updateOrder(order);
-}
+};
 
 // Display array created in populateOrder()
 const updateOrder = (arr) => {
   const yourOrder = document.getElementById('yourOrder');
   if (arr.length === 0) {
     // If there are no items in the array
-    yourOrder.innerHTML = '<span class="yourOrderIntro">Your order is empty.</span>';
+    yourOrder.innerHTML =
+      '<span class="yourOrderIntro">Your order is empty.</span>';
   } else {
     yourOrder.innerHTML = ''; // reset the HTML
     let subtotal = 0;
@@ -178,7 +185,6 @@ const updateOrder = (arr) => {
       let name = arr[i][1];
       let unitPrice = arr[i][2];
       let itemTotal = unitPrice * qty;
-      // console.log('qty: ', qty, 'name: ', name, 'unitPrice: ', unitPrice, 'subtotal: ', subtotal);
       subtotal += itemTotal;
 
       let row = document.createElement('div');
@@ -206,6 +212,5 @@ const updateOrder = (arr) => {
     subtotalRow.appendChild(subtotalTitle);
     subtotalRow.appendChild(subtotalAmount);
     yourOrder.appendChild(subtotalRow);
-
   }
-}
+};
