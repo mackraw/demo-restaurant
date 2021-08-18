@@ -6,6 +6,32 @@ Styles for the order page
 
 @import url(../base.css);
 
+/* HEADER */
+
+#banner {
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../resources/meals.jpg') center center / cover no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))),
+    url('../resources/meals.jpg') center center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../resources/meals.jpg') center center / cover no-repeat;
+  height: 25rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.title {
+  top: 5rem;
+  position: relative;
+  font-size: 3rem;
+  padding-top: 3rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+  padding-top: 1rem;
+}
+
 /* MENU & ORDER SECTION */
 
 #orderContainer {
@@ -14,31 +40,34 @@ Styles for the order page
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
 #orderForm {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 65%;
-          flex: 1 1 65%;
+  -ms-flex: 1 1 65%;
+  flex: 1 1 65%;
   margin-bottom: 1rem;
   width: 66%;
 }
 
 #yourOrderContainer {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 30%;
-          flex: 1 1 30%;
+  -ms-flex: 1 1 30%;
+  flex: 1 1 30%;
   -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
-
-
 /* ORDER FORM */
+
+#orderContainer>header {
+  width: 100%;
+  margin-bottom: 2rem;
+}
 
 .orderTitle {
   font-family: RobotoBold;
@@ -49,39 +78,36 @@ Styles for the order page
   margin: 1rem 0;
 }
 
-
 .orderSubtitle {
-
 }
 
 .row {
- display: -webkit-box;
- display: -ms-flexbox;
- display: flex;
- -webkit-box-orient: horizontal;
- -webkit-box-direction: normal;
-     -ms-flex-flow: row nowrap;
-         flex-flow: row nowrap;
- -webkit-box-align: center;
-     -ms-flex-align: center;
-         align-items: center;
- -webkit-box-pack: justify;
-     -ms-flex-pack: justify;
-         justify-content: space-between ;
- margin-bottom: 1rem;
- background-color: var(--light-gray);
- border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border: 1px solid var(--orange);
+  background-color: var(--light-orange);
+  border-radius: 3px;
+  padding: 0.5rem;
 }
 
 .imgContainer {
- width: 20%;
+  width: 20%;
 }
 
 .foodImg {
   border-radius: 5px;
-  border: 1px solid var(--light-gray);
-  -webkit-box-shadow: var(--gray) 0 0 15px;
-          box-shadow: var(--gray) 0 0 15px;
   width: 100%;
   height: 100px;
   background-size: cover;
@@ -90,14 +116,14 @@ Styles for the order page
 .item-name {
   width: 58%;
   padding: 0 1.5rem;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 600;
   line-height: 1.75rem;
 }
 
 .price {
   width: 12%;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 500;
 }
@@ -110,21 +136,11 @@ Styles for the order page
   padding: 0.5rem;
 }
 
-.placeOrderBtn {
-  padding: 1.2rem 1.5rem;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 2px solid var(--dark-red);
-  color: var(--dark-red);
-  font-size: 0.95rem;
-  border-radius: 4px;
-  font-weight: 600;
+.btn {
+  width: 100%;
 }
 
-.placeOrderBtn:hover {
-  border: 2px solid var(--dark-red);
-  color: var(--white);
-  background-color: var(--dark-red);
+.btn:hover {
   cursor: pointer;
 }
 
@@ -133,26 +149,23 @@ Styles for the order page
 #yourOrderContainer {
   position: -webkit-sticky;
   position: sticky;
-  top: 3rem;
-  margin-left: 1rem;
-  padding: 1rem;
-  /* right: 10%; */
-  /* width: 25%; */
+  top: 6rem;
+  margin-left: 3rem;
+  padding: 1rem 2rem;
   border: 2px solid var(--light-gray);
-  border-radius: 3px;
+  border-radius: 5px;
   -webkit-box-shadow: var(--light-gray) 0 0 15px;
-          box-shadow: var(--light-gray) 0 0 15px;
+  box-shadow: var(--light-gray) 0 0 15px;
 }
 
 #yourOrder {
-  /* padding-left: 1.5rem; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
   width: 100%;
   line-height: 1.5rem;
   font-size: 0.85rem;
@@ -162,14 +175,16 @@ Styles for the order page
   text-align: center;
 }
 
-.yourHeading, .yourRow, .subtotalRow {
+.yourHeading,
+.yourRow,
+.subtotalRow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
 }
 
 .yourHeading {
@@ -180,9 +195,6 @@ Styles for the order page
   color: var(--dark-gray);
   border-bottom: 1px solid var(--gray);
   padding-bottom: 0.5rem;
-}
-
-.yourHeading > .itemCol {
 }
 
 .itemCol {
@@ -205,16 +217,9 @@ Styles for the order page
   letter-spacing: -0.05rem;
 }
 
-
 .subtotalRow {
   text-transform: uppercase;
   font-weight: 800;
   border-top: 1px solid var(--gray);
   padding-top: 0.5rem;
 }
-
-
-/* .yourRow::first-line {
-  font-weight: 600;
-  font-style: normal;
-} */

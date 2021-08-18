@@ -9,11 +9,19 @@ Styles for the Menu page
 /* TITLE SECTION */
 
 #banner {
-  background-image: url(../resources/meals2.jpg);
-  height: 40vh;
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../resources/meals2.jpg') center center / cover no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))),
+    url('../resources/meals2.jpg') center center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../resources/meals2.jpg') center center / cover no-repeat;
+  height: 25rem;
+  position: relative;
 }
 
 .title {
+  top: 5rem;
+  position: relative;
   font-size: 3rem;
   padding-top: 3rem;
 }
@@ -32,12 +40,12 @@ Styles for the Menu page
   margin-bottom: 2rem;
 }
 
-#menuTable tr>td:first-of-type {
+#menuTable tr > td:first-of-type {
   width: 150px;
   height: 110px;
 }
 
-#menuTable tr>td:nth-of-type(2) {
+#menuTable tr > td:nth-of-type(2) {
   width: 66%;
   padding-left: 2rem;
   font-weight: 600;
