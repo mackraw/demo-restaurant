@@ -82,12 +82,15 @@ ul {
   --green: #6c9400;
   --red: #bc1212;
   --dark-red: #70130e;
-  --light-gray: #e1e1e1;
+  --light-gray: #33323246;
+  --light-grey: var(--light-gray);
   --gray: #aaaaaa8c;
+  --grey: var(--gray);
   --dark-gray: #3f3f3f;
   --dark-gray-transprent: #3f3f3fc4;
   --mid-gray: #6b6b6b;
-  --orange: #ff6937;
+  --orange: #e44f1e;
+  --light-orange: #e245110e;
 }
 
 /* MAIN */
@@ -101,7 +104,7 @@ ul {
 /* NAV */
 
 #nav {
-  background-color: hsla(0, 0%, 25%, 0.35);
+  background-color: hsla(0, 0%, 25%, 0);
   height: 7rem;
   position: fixed;
   width: 100vw;
@@ -199,8 +202,9 @@ section {
   width: 7rem;
   text-align: center;
   border-radius: 5px;
-  -webkit-box-shadow: var(--dark-gray) 0 0 10px;
-  box-shadow: var(--dark-gray) 0 0 10px;
+  border: none;
+  /* -webkit-box-shadow: var(--dark-gray) 0 0 10px; */
+  /* box-shadow: var(--dark-gray) 0 0 10px; */
   text-transform: uppercase;
   font-weight: 700;
   -webkit-transition: all 100ms ease-in-out;
@@ -211,11 +215,9 @@ section {
 
 .btn:hover {
   color: var(--white);
-  -webkit-box-shadow: var(--dark-gray) 0 0 15px;
-  box-shadow: var(--dark-gray) 0 0 15px;
-  -webkit-transform: scale(1.02);
-  -ms-transform: scale(1.02);
-  transform: scale(1.02);
+  -webkit-box-shadow: 0 0 20px var(--light-gray);
+          box-shadow: 0 0 20px var(--light-gray);
+ 
 }
 
 .section-title,
