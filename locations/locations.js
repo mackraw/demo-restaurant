@@ -15,37 +15,7 @@ const searchCurrentLocationBtn = document.querySelector('#findCurrentLocation');
 const searchInputLocationBtn = document.getElementById('locationSearchBtn');
 const locationSearchInput = document.getElementById('locationSearchInput');
 
-const displayLocationName = (data) => {
-  const a = data.address;
-  const address = `Showing results ${
-    a.house_number == undefined ? '' : 'near ' + a.house_number
-  } ${a.road == undefined ? '' : a.road}${
-    a.city == undefined ? '' : ' in ' + a.city
-  }, ${a.state == undefined ? '' : a.state}`;
-  yourLocation.innerText = address;
-};
-
-const searchName = async () => {
-  const searchString = locationSearchInput.value;
-  try {
-    const response = await fetch(
-      `https://us1.locationiq.com/v1/search.php?key=${locToken}&q=${searchString}&limit=1&addressdetails=1&format=json`
-    );
-    const data = await response.json();
-    displayLocationName(data[0]);
-    const obj = {
-      coords: {
-        latitude: `${data[0].lat}`,
-        longitude: `${data[0].lon}`,
-      },
-    };
-    getRestaurants(obj);
-  } catch (error) {
-    console.error(error.message);
-    yourLocation.innerText = `Something went wrong...`;
-  }
-};
-
+// Event listeners for searching user input
 searchInputLocationBtn.addEventListener('click', searchName);
 locationSearchInput.addEventListener('keyup', (e) => {
   if (e.code == 'Enter') {
@@ -53,44 +23,88 @@ locationSearchInput.addEventListener('keyup', (e) => {
   }
 });
 
-const getLocationName = async (pos) => {
+// Event listener for using current location
+searchCurrentLocationBtn.addEventListener('click', () => {
+  navigator.geolocation.getCurrentPosition(searchCurrentLocation, error);
+});
+function error(err) {
+  console.log('NAVIGATOR ERROR...');
+  console.log(err.message);
+};
+
+// Main logic for results based on user search
+async function searchName() {
+  const searchString = locationSearchInput.value;
+
+  try {
+    // Get address and coords
+    const response = await fetch(
+      `https://us1.locationiq.com/v1/search.php?key=${locToken}&q=${searchString}&limit=1&addressdetails=1&format=json`
+    );
+    const data = await response.json();
+
+    displayShowingForAddress(data[0]);
+    
+    // Get restaurants
+    const obj = {
+      coords: {
+        latitude: `${data[0].lat}`,
+        longitude: `${data[0].lon}`,
+      },
+    };
+    await getRestaurants(obj);
+  } catch (error) {
+    console.error(error.message);
+    yourLocation.innerText = `Something went wrong...`;
+  }
+};
+
+// Main logic for results based on current location
+async function searchCurrentLocation(pos) {
   const lat = pos.coords.latitude;
   const lon = pos.coords.longitude;
   try {
+    // Get address for current location
     const response = await fetch(
       `https://us1.locationiq.com/v1/reverse.php?key=${locToken}&lat=${lat}&lon=${lon}&format=json`
     );
     const data = await response.json();
-    displayLocationName(data);
+    displayShowingForAddress(data);
+    await getRestaurants(pos);
   } catch (error) {
     console.error(error);
   }
 };
 
-const error = (err) => {
-  console.log(err.message);
-};
-
-searchCurrentLocationBtn.addEventListener('click', () => {
-  navigator.geolocation.getCurrentPosition(getRestaurants, error);
-});
-
-const getRestaurants = async (pos) => {
+// Get restuarant data, then call display restaurants
+async function getRestaurants(pos) {
   const lat = pos.coords.latitude;
   const lon = pos.coords.longitude;
-  getLocationName(pos);
   try {
+    // Get Restaurant data
     const response = await fetch(
       `https://us1.locationiq.com/v1/nearby.php?key=${locToken}&lat=${lat}&lon=${lon}&tag=restaurant&radius=50000&format=json`
     );
     const data = await response.json();
-    displayResults(data);
+    displayRestaurants(data);
   } catch (error) {
     console.error(error.message);
   }
 };
 
-function displayResults(arr) {
+// Display address in "Showing results for"
+function displayShowingForAddress(data) {
+  const a = data.address;
+  const address = `Showing results${
+    a.house_number == undefined ? '' : ' near ' + a.house_number
+  } ${a.road == undefined ? '' : a.road}${
+    a.city == undefined ? '' : ' in ' + a.city
+  }, ${a.state == undefined ? '' : a.state}`;
+  yourLocation.innerText = address;
+};
+
+// Display restaurant locations
+function displayRestaurants(arr) {
   const htmlArr = arr.map((item) => {
     const a = item.address;
     const div = document.createElement('div');
@@ -114,6 +128,7 @@ function displayResults(arr) {
     }
   });
 
+  // Change styles for the search section
   findLocationSection.style.height = '25rem';
   resultsSection.classList.remove('hidden');
   searchResults.innerHTML = '';
