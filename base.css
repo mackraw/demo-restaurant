@@ -127,6 +127,8 @@ ul {
   height: 0.2em;
   background-color: var(--white);
   border-radius: 1em;
+  -webkit-box-shadow: 0 0 5px var(--black);
+  box-shadow: 0 0 5px var(--black);
   -webkit-transition: all 350ms ease-in-out;
   -o-transition: all 350ms ease-in-out;
   transition: all 350ms ease-in-out;
