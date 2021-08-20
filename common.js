@@ -16,3 +16,10 @@ window.addEventListener('scroll', () => {
 // place current year in the footer copyright notice
 const currentYear = document.getElementById('currentYear');
 currentYear.textContent = `${new Date().getFullYear()}`;
+
+// burger button
+const burgerWrapper = document.getElementById('burger-wrapper');
+
+burgerWrapper.addEventListener('click', () => {
+  nav.classList.toggle('is-open');
+});

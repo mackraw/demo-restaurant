@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <script src="index.js" type="module" async></script>
-    <script src="../common.js" type="module" async></script>
+    <link rel="stylesheet" href="./restaurant.css" />
+    <script src="./restaurant.js" type="module" async></script>
+    <script src="./common.js" type="module" async></script>
     <title>Demo Restaurant - Home</title>
   </head>
   <body>
 
     <nav id="nav">
+      <div id="burger-wrapper">
+        <div class="burger-btn"></div>
+      </div>
       <ul class="container top-nav">
         <li><a href="#">Home</a></li>
         <li><a href="order/">Order</a></li>
@@ -43,11 +46,10 @@
     </section>
 
     <section id="open">
-      <div class="banner-text">
-        <h1 class="section-title cointainer">We're Open for Pickup, Curbside, or Delivery!</h1>
-        <h2 class="section-subtitle cointainer">We've got food for the whole family.</h2>
-        <div class="btn-container cointainer"><a href="menu/" class="btn">Order Now</a></div>
-
+      <div class="open-text">
+        <h1 class="section-title container">We're Open for Pickup, Curbside, or Delivery!</h1>
+        <h2 class="section-subtitle container">We've got food for the whole family.</h2>
+        <div class="btn-container container"><a href="menu/" class="btn">Order Now</a></div>
       </div>
     </section>
 
@@ -66,7 +68,7 @@
       <div class="footer-top">
         <div class="footer-top-nav">
           <div class="top-footer-nav-col">
-            <p>logo</p>
+            <p class="logo">Italian<br>Restaurant</p>
           </div>
           <ul class="footer-top-nav-col">
             <li>Menu</li>
