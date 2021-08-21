@@ -129,8 +129,8 @@ function displayRestaurants(arr) {
   });
 
   // Change styles for the search section
-  findLocationSection.style.height = '25rem';
   resultsSection.classList.remove('hidden');
+
   searchResults.innerHTML = '';
   for (let i = 0; i < htmlArr.length; i++) {
     if (htmlArr[i] == null) {
@@ -138,4 +138,17 @@ function displayRestaurants(arr) {
       searchResults.append(htmlArr[i]);
     }
   }
+  const nav = document.getElementById('nav');
+  if (window.innerWidth > 600) {
+    window.scroll({
+      top: resultsSection.offsetTop - nav.offsetHeight,
+      behavior: 'smooth',
+    });
+  } else {
+    window.scroll({
+      top: resultsSection.offsetTop - 36,
+      behavior: 'smooth',
+    });
+  }
 }
+

@@ -113,6 +113,7 @@ ul {
   right: 2em;
   top: 2em;
   z-index: 11;
+  pointer-events: auto;
 }
 
 .burger-btn {
@@ -177,6 +178,7 @@ ul {
 #nav {
   position: fixed;
   right: 0;
+  pointer-events: none;
   z-index: 10;
   -webkit-transition: all 150ms ease-in-out;
   -o-transition: all 150ms ease-in-out;
@@ -216,6 +218,7 @@ ul {
 
 .top-nav > li {
   padding: 0.6em 2em;
+  pointer-events: auto;
 }
 
 .top-nav > li > a {

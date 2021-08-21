@@ -9,16 +9,7 @@ Filename:   locations.css
 /*  */
 
 #find-location-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  height: 100vh;
   background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('../resources/restaurant.jpg') center center / cover no-repeat;
   background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -27,32 +18,47 @@ Filename:   locations.css
     url('../resources/restaurant.jpg') center center / cover no-repeat;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('../resources/restaurant.jpg') center center / cover no-repeat;
-  height: 100vh;
+}
+
+.user-input-location {
   color: var(--white);
+  width: 80vw;
+  height: 100%;
+  margin: 0 auto;
   text-shadow: var(--black) 0 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-align: space-between;
+  -ms-flex-align: space-between;
+  align-items: space-between;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   -webkit-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
+}
+.inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
-
-@media screen and (min-width: 768px) {
-  .inputs {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-  }
+@media screen and (min-width: 600px) {
 }
 
 #locationSearchInput {
@@ -108,25 +114,15 @@ Filename:   locations.css
 
 .searchResults {
   line-height: 1.5rem;
-  margin: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  margin-bottom: 4rem;
 }
 
 .result-item {
   border: 1px solid var(--light-gray);
-  margin: 1rem;
+  margin: 1rem auto 1rem auto;
   padding: 1.65rem 2rem;
   border-radius: 5px;
-  width: 40%;
+  width: 80%;
   -webkit-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
@@ -175,4 +171,22 @@ Filename:   locations.css
 
 .result-link:target {
   color: #4745f0;
+}
+
+@media screen and (min-width: 600px) {
+  .searchResults {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .result-item {
+    width: 40%;
+  }
 }
