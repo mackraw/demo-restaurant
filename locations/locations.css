@@ -20,7 +20,7 @@ Filename:   locations.css
     url('../resources/restaurant.jpg') center center / cover no-repeat;
 }
 
-.user-input-location {
+.find-location-content {
   color: var(--white);
   width: 80vw;
   height: 100%;
@@ -43,7 +43,8 @@ Filename:   locations.css
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
 }
-.inputs {
+
+.user-choice {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,14 +52,17 @@ Filename:   locations.css
   -webkit-box-direction: normal;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  -webkit-box-pack: center;
   -ms-flex-pack: center;
+  -webkit-box-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
 }
-@media screen and (min-width: 600px) {
+
+.search-container {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
 }
 
 #locationSearchInput {
@@ -67,6 +71,12 @@ Filename:   locations.css
   margin: 1rem auto;
   border-radius: 5px;
   font-family: Roboto, sans-serif;
+}
+
+@media screen and (min-width: 660px) {
+  #locationSearchInput {
+    width: 15rem;
+  }  
 }
 
 #locationSearchInput:focus {
@@ -82,10 +92,11 @@ Filename:   locations.css
   margin: 1.5rem;
   -ms-flex-item-align: end;
   text-align: center;
+  width: 5%;
 }
 
 #locationSearchBtn,
-#findCurrentLocation {
+#findCurrentLocationBtn {
   background-color: var(--white);
   color: var(--black);
   padding: 0.75rem 1.5rem;

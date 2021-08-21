@@ -55,13 +55,6 @@ window.addEventListener('load', () => {
     // Insert row into form
     orderForm.appendChild(row);
   }
-
-  // Create a button to place the order
-  const button = document.createElement('button');
-  button.innerText = 'Place Your Order';
-  button.classList.add('btn');
-  button.onclick = calculate;
-  orderForm.appendChild(button);
 });
 
 // Calculate the order according to the number of items sold
@@ -212,5 +205,12 @@ const updateOrder = (arr) => {
     subtotalRow.appendChild(subtotalTitle);
     subtotalRow.appendChild(subtotalAmount);
     yourOrder.appendChild(subtotalRow);
+
+    // Create a button to place the order
+    const button = document.createElement('button');
+    button.innerText = 'Place Your Order';
+    button.classList.add('btn');
+    button.onclick = calculate;
+    yourOrder.appendChild(button);
   }
 };

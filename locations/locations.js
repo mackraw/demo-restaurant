@@ -11,7 +11,9 @@ const yourLocation = document.querySelector('#yourLocation');
 const searchResults = document.querySelector('.searchResults');
 const findLocationSection = document.getElementById('find-location-section');
 const resultsSection = document.querySelector('.results');
-const searchCurrentLocationBtn = document.querySelector('#findCurrentLocation');
+const searchCurrentLocationBtn = document.querySelector(
+  '#findCurrentLocationBtn'
+);
 const searchInputLocationBtn = document.getElementById('locationSearchBtn');
 const locationSearchInput = document.getElementById('locationSearchInput');
 

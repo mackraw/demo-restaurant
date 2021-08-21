@@ -54,15 +54,14 @@ Styles for the Menu page
 
 #menuTable img {
   width: 100%;
-  border: 1px solid var(--white);
+  /* border: 1px solid var(--white); */
   border-radius: 5px;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .itemDesc {
   font-weight: 400;
   font-size: 1rem;
-  /* font-style: italic; */
   line-height: 1.5rem;
   padding-top: 0.6rem;
   color: var(--dark-gray);
@@ -71,4 +70,36 @@ Styles for the Menu page
 .price {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+@media screen and (max-width:600px) {
+  tr, td {
+    display: block;
+  }
+  
+  tr {
+    margin: 2rem 0;
+    padding: 0 0.5rem;
+    border-radius: calc(5px + 0.5rem);
+    -webkit-box-shadow: 0 0 10px rgba(49, 49, 49, 0.6);
+            box-shadow: 0 0 10px rgba(49, 49, 49, 0.6);
+  }
+
+  td {
+    margin: 1rem 0;
+  }
+
+  #menuTable tr > td:nth-of-type(2) {
+    padding: 0;
+    width: 100%;
+  }
+
+  #menuTable tr > td:first-of-type {
+    width: 100%;
+    height: 200px;
+    padding-top: 0.5rem;
+  }
+  .price {
+    padding-bottom: 0.5rem;
+  }
 }

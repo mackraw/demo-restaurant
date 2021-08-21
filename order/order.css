@@ -82,19 +82,7 @@ Styles for the order page
 }
 
 .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  
   margin-bottom: 1rem;
   border: 1px solid var(--orange);
   background-color: var(--light-orange);
@@ -102,38 +90,75 @@ Styles for the order page
   padding: 0.5rem;
 }
 
-.imgContainer {
-  width: 20%;
+@media screen and (min-width:600px) {
+  .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  .imgContainer {
+    width: 20%;
+  }
+  
+  .foodImg {
+    height: 100px;
+  }
+  
+  .item-name {
+    width: 58%;
+    padding: 0 1.5rem;
+  }
+
+  .price {
+    width: 12%;
+  }
+
+  .qty-container {
+    width: 10%;
+  }
+
+
 }
 
 .foodImg {
   border-radius: 5px;
   width: 100%;
-  height: 100px;
+  height: 200px;
   background-size: cover;
 }
 
+.item-name,
+.price,
+.qty-container {
+  padding-top: 0.5rem;
+}
+
 .item-name {
-  width: 58%;
-  padding: 0 1.5rem;
   font-size: 1.05rem;
   font-weight: 600;
-  line-height: 1.75rem;
+  line-height: 1.5;
 }
 
 .price {
-  width: 12%;
   font-size: 1rem;
   font-style: italic;
   font-weight: 500;
 }
 
-.qty-container {
-  width: 10%;
-}
-
-.qty-container select {
+.qtyNum {
   padding: 0.5rem;
+  width: 100%;
 }
 
 .btn {
@@ -150,12 +175,18 @@ Styles for the order page
   position: -webkit-sticky;
   position: sticky;
   top: 6rem;
-  margin-left: 3rem;
   padding: 1rem 2rem;
-  border: 2px solid var(--light-gray);
+  /* border: 2px solid var(--light-gray); */
   border-radius: 5px;
   -webkit-box-shadow: var(--light-gray) 0 0 15px;
   box-shadow: var(--light-gray) 0 0 15px;
+}
+
+@media screen and (min-width:600px) {
+  #yourOrderContainer {
+    margin-left: 3rem;
+
+  }
 }
 
 #yourOrder {

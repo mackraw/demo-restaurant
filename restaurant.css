@@ -4,15 +4,17 @@
 Styles for the home page
 */
 
-@import url("base.css");
-
+@import url('base.css');
 
 /* BANNER */
 
 #banner {
-  background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./resources/meals2.jpg) center center / cover no-repeat;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(./resources/meals2.jpg) center center / cover no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./resources/meals2.jpg) center center / cover no-repeat;
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(./resources/meals2.jpg) center center / cover no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))),
+    url(./resources/meals2.jpg) center center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(./resources/meals2.jpg) center center / cover no-repeat;
 }
 
 /* SPECIALS */
@@ -33,7 +35,6 @@ Styles for the home page
 }
 
 @media screen and (min-width: 600px) {
-  
   #cards-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -45,7 +46,7 @@ Styles for the home page
     -ms-flex-pack: distribute;
     justify-content: space-around;
   }
-  
+
   .card {
     width: 28%;
     max-width: 250px;
@@ -56,14 +57,14 @@ Styles for the home page
 
 .card:hover {
   -webkit-box-shadow: 0 0 20px var(--gray);
-          box-shadow: 0 0 20px var(--gray);
+  box-shadow: 0 0 20px var(--gray);
 }
 
 .foodImg {
   border-radius: 5px;
   border: 1px solid var(--light-gray);
   -webkit-box-shadow: var(--gray) 0 0 15px;
-          box-shadow: var(--gray) 0 0 15px;
+  box-shadow: var(--gray) 0 0 15px;
   width: 100%;
   height: 200px;
 }
@@ -92,7 +93,7 @@ Styles for the home page
 }
 
 .food-item-btn {
-  display:block;
+  display: block;
   text-align: center;
   padding: 0.85rem;
   margin: 0.85rem 0;
@@ -114,11 +115,14 @@ Styles for the home page
 }
 
 #open {
-  background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(resources/toast.jpg) center center / cover no-repeat;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(resources/toast.jpg) center center / cover no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(resources/toast.jpg) center center / cover no-repeat;
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(resources/toast.jpg) center center / cover no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))),
+    url(resources/toast.jpg) center center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(resources/toast.jpg) center center / cover no-repeat;
   color: var(--white);
-  margin-bottom:0;
+  margin-bottom: 0;
   height: 80vh;
   position: relative;
 }
@@ -129,18 +133,18 @@ Styles for the home page
   top: 50%;
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
-      -ms-transform: translateY(-50%) translateX(-50%);
-          transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
 }
 
-.open-text h1, .open-text h2 {
+.open-text h1,
+.open-text h2 {
   text-shadow: var(--text-shadow);
 }
 
 #open > .btn-container {
   margin-top: 2rem;
 }
-
 
 /* JOIN */
 
@@ -157,7 +161,6 @@ Styles for the home page
 }
 
 @media screen and (min-width: 600px) {
-  
   #join {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -166,15 +169,15 @@ Styles for the home page
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-    margin-bottom:0;
+    margin-bottom: 0;
   }
-  
+
   #join-img {
     width: 50%;
     height: auto;
     margin-bottom: 0;
   }
-  
+
   #join-main {
     -ms-flex-item-align: center;
     align-self: center;
@@ -182,7 +185,7 @@ Styles for the home page
     margin: 0 10%;
     top: 50%;
   }
-  
+
   #join-main p {
     line-height: 1.5;
     margin-bottom: 2rem;

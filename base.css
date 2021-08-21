@@ -110,15 +110,22 @@ ul {
   cursor: pointer;
   position: fixed;
   height: 2em;
+  /* width: 2em; */
   right: 2em;
   top: 2em;
   z-index: 11;
   pointer-events: auto;
+  /* background-color: hsla(0, 0%, 6%, 0.6);
+  border-radius: 50%; */
 }
 
 .burger-btn {
   position: relative;
   top: 50%;
+  /* left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%); */
 }
 
 .burger-btn,
@@ -128,8 +135,8 @@ ul {
   height: 0.2em;
   background-color: var(--white);
   border-radius: 1em;
-  -webkit-box-shadow: 0 0 5px var(--black);
-  box-shadow: 0 0 5px var(--black);
+  -webkit-box-shadow: 0 0 0 5px hsla(0, 0%, 6%, 0.9);
+  box-shadow: 0 0 0 2px hsla(0, 0%, 6%, 0.9);
   -webkit-transition: all 350ms ease-in-out;
   -o-transition: all 350ms ease-in-out;
   transition: all 350ms ease-in-out;
@@ -159,6 +166,8 @@ ul {
 
 .is-open .burger-btn::after {
   opacity: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .is-open .burger-btn::before {
@@ -166,6 +175,8 @@ ul {
   -ms-transform: rotate(90deg) translate(-35%);
   transform: rotate(90deg) translate(-35%);
   background-color: var(--white);
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .is-open .burger-btn {
@@ -173,6 +184,8 @@ ul {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   background-color: var(--white);
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 #nav {
